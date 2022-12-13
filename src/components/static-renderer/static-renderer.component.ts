@@ -1,8 +1,8 @@
-import { html } from "lit";
+import { html, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { TailwindElement } from "../../shared/tailwind-element/tailwind.component";
 
-import style from "./static-renderer.component.scss";
+const style = css``;
 
 @customElement("static-renderer")
 export class StaticRenderer extends TailwindElement(style) {
