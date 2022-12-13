@@ -1,6 +1,6 @@
 import { html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { TailwindElement } from '../shared/tailwind.element';
+import { TailwindElement } from '../../shared/tailwind-element/tailwind.component';
 
 import style from './static-renderer.component.scss';
 

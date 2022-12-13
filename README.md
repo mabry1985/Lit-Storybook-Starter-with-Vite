@@ -81,7 +81,6 @@ If you want to understand how it works, it's simple:
 "tailwindcss": "^3.2.0",
 "typescript": "^4.8.4",
 "vite": "^3.1.8",
-"sass": "^1.55.0"
 ```
 
 - **vite** does almost all the work automatically
@@ -105,9 +104,9 @@ export const TailwindElement = (style) =>
 
 It extends a _LitElement_ class at runtime and adds the component tailwind classes.
 
-The _style_ variable comes from your component, where it is imported from an external CSS (or SCSS) file.
+The _style_ variable comes from your component, where it is imported from an external CSS file.
 
-Then it is combined with the default tailwind classes.
+Then it is combined with the default Tailwind classes.
 
 If you add more components, the common parts are reused.
 

@@ -1,8 +1,8 @@
 import { html } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { TailwindElement } from "../shared/tailwind.element";
+import { TailwindElement } from "../../shared/tailwind-element/tailwind.component";
 
-import style from "./test2.component.scss";
+import style from "./test2.component.css";
 
 @customElement("test2-component")
 export class Test2Component extends TailwindElement(style) {

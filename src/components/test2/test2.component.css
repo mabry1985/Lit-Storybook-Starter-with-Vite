@@ -1,0 +1,7 @@
+p {
+  @apply bg-red-200;
+}
+
+p > b {
+  @apply text-orange-500;
+}
