@@ -1,22 +1,19 @@
-import { html, css } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
-import { TailwindElement } from '../../shared/tailwind-element/tailwind.component';
+import { html } from "lit";
+import { customElement, property } from "lit/decorators.js";
+import { TailwindElement } from "../../shared/tailwind-element/tailwind.component";
 
-import style from './static-renderer.component.scss';
+import style from "./static-renderer.component.scss";
 
-@customElement('static-renderer')
+@customElement("static-renderer")
 export class StaticRenderer extends TailwindElement(style) {
-  
   @property()
-  name = 'World';
+  name = "World";
 
   render() {
     return html`
-    <div class="p-8 bg-slate-100 rounded-lg inline-block">
-      <p>
-        Hello, <b>${this.name}</b>!
-      </p>
-    </div>
+      <div class="p-8 bg-slate-100 rounded-lg inline-block">
+        <p>Hello, <b>${this.name}</b>!</p>
+      </div>
     `;
   }
 }
