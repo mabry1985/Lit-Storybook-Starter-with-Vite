@@ -68,12 +68,12 @@ There are only two differences to a standard _LitElement_:
    - you can decide to use CSS or SCSS
 2) the class extends a _TailwindElement_ rather than a LitElement
 
-A _TailwindElement_ extends a _LitElmement_ (see below) and adds the logic to integrate tailwind and your style.
+A _TailwindElement_ extends a _LitElement_ (see below) and adds the logic to integrate tailwind and your style.
 
 ## Show me the pieces
 If you want to understand how it works, it's simple:
 
-- the **package.json** integrates these technolgies:
+- the **package.json** integrates these technologies:
 ```json
 "autoprefixer": "^10.4.12",
 "postcss": "^8.4.18",
