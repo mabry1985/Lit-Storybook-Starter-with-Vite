@@ -1,6 +1,4 @@
-.sass-cache/
 *.css.map
-*.scss.map
 dist
 node_modules
 .env

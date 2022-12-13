@@ -2,9 +2,12 @@
 
 This is a component library starter kit for [Lit Element](https://lit.dev/docs/) with [Storybook](https://storybook.js.org/docs/react/get-started/introduction) and [TailwindCSS](https://tailwindcss.com/docs/installation).
 
+Code standards are enforced with [ESLint](https://eslint.org/docs/user-guide/getting-started) and [Prettier](https://prettier.io/docs/en/index.html). These are run on commit with [Husky](https://typicode.github.io/husky/#/) to keep me honest.
+
 ## Getting Started
 
 ### Install dependencies
+
 `pnpm install`
 
 ### Start Storybook
@@ -27,7 +30,7 @@ This is a component library starter kit for [Lit Element](https://lit.dev/docs/)
 
 ### Note: This Tailwind integration was originally developed by [butopen](https://github.com/butopen/web-components-tailwind-starter-kit)
 
-Tailwind and web components do not play well together. 
+Tailwind and web components do not play well together.
 
 We managed to find a way to make them work without hacks or weird tech: just common technologies combined in a elegant way.
 
@@ -36,17 +39,18 @@ No dependencies, based on [lit-element](https://lit.dev/docs/).
 Here is a sample code:
 
 ```typescript
-import {html} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
-import {TailwindElement} from '../shared/tailwind.element';
+import { html } from "lit";
+import { customElement, property } from "lit/decorators.js";
+import { TailwindElement } from "../shared/tailwind.element";
 
-import style from './test.component.scss'; // #1
+import style from "./test.component.scss"; // #1
 
-@customElement('test-component')
-export class TestComponent extends TailwindElement(style) { // #2
+@customElement("test-component")
+export class TestComponent extends TailwindElement(style) {
+  // #2
 
   @property()
-  name?: string = 'World';
+  name?: string = "World";
 
   render() {
     return html`
@@ -55,25 +59,31 @@ export class TestComponent extends TailwindElement(style) { // #2
         <b>${this.name}</b>
         !
       </p>
-      <button class="bg-blue-200 text-yellow-200 p-2 rounded-full text-2xl">Hello world!</button>
+      <button class="bg-blue-200 text-yellow-200 p-2 rounded-full text-2xl">
+        Hello world!
+      </button>
     `;
   }
 }
 ```
-It is based on the [lit element](https://lit.dev/docs/) technology: if you wrote a lit component before, you'll find it familiar.  
+
+It is based on the [lit element](https://lit.dev/docs/) technology: if you wrote a lit component before, you'll find it familiar.
 
 There are only two differences to a standard _LitElement_:
-1) You must import your styles from a separate file. And this is good for two reasons:
+
+1. You must import your styles from a separate file. And this is good for two reasons:
    - it separate the CSS from the logic
    - you can decide to use CSS or SCSS
-2) the class extends a _TailwindElement_ rather than a LitElement
+2. the class extends a _TailwindElement_ rather than a LitElement
 
 A _TailwindElement_ extends a _LitElement_ (see below) and adds the logic to integrate tailwind and your style.
 
 ## Show me the pieces
+
 If you want to understand how it works, it's simple:
 
 - the **package.json** integrates these technologies:
+
 ```json
 "autoprefixer": "^10.4.12",
 "postcss": "^8.4.18",
@@ -87,19 +97,16 @@ If you want to understand how it works, it's simple:
 - to integrate tailwind, the most important file is in _src/shared/tailwind.element.ts_
 
 ```typescript
-import {LitElement, unsafeCSS} from "lit";
+import { LitElement, unsafeCSS } from "lit";
 
 import style from "./tailwind.global.css";
 
 const tailwindElement = unsafeCSS(style);
 
 export const TailwindElement = (style) =>
-    class extends LitElement {
-
-        static styles = [tailwindElement, unsafeCSS(style)];
-    
-    };
-
+  class extends LitElement {
+    static styles = [tailwindElement, unsafeCSS(style)];
+  };
 ```
 
 It extends a _LitElement_ class at runtime and adds the component tailwind classes.
